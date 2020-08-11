@@ -1,6 +1,7 @@
 package com.telecom.stepdefinition;
 
 import java.util.List;
+import java.util.Map;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -65,6 +66,31 @@ public class AddTariffplanSteps {
 	    driver.findElement(By.id("minutes_charges")).sendKeys(li.get(0).get(3));
 	    driver.findElement(By.id("inter_charges")).sendKeys(li.get(2).get(4));
 	    driver.findElement(By.id("sms_charges")).sendKeys(li.get(3).get(5));
+	}
+	@When("User filling all the details in tariff plans using one dimensional map")
+	public void user_filling_all_the_details_in_tariff_plans_using_one_dimensional_map(DataTable dT) throws InterruptedException {
+		handleFrame();
+		Map<String,String> li = dT.asMap(String.class,String.class);
+		 driver.findElement(By.id("rental1")).sendKeys(li.get("A"));
+		    driver.findElement(By.id("local_minutes")).sendKeys(li.get("B"));
+		    driver.findElement(By.id("inter_minutes")).sendKeys(li.get("C"));
+		    driver.findElement(By.id("sms_pack")).sendKeys(li.get("D"));
+		    driver.findElement(By.id("minutes_charges")).sendKeys(li.get("E"));
+		    driver.findElement(By.id("inter_charges")).sendKeys(li.get("F"));
+		    driver.findElement(By.id("sms_charges")).sendKeys(li.get("G"));
+		
+	}
+	@When("User filling all the details in tariff plans using two dimensional map")
+	public void user_filling_all_the_details_in_tariff_plans_using_two_dimensional_map(DataTable dT) throws InterruptedException {
+		handleFrame();
+		List<Map<String, String>> li = dT.asMaps();
+		driver.findElement(By.id("rental1")).sendKeys(li.get(0).get("A"));
+	    driver.findElement(By.id("local_minutes")).sendKeys(li.get(1).get("B"));
+	    driver.findElement(By.id("inter_minutes")).sendKeys(li.get(3).get("C"));
+	    driver.findElement(By.id("sms_pack")).sendKeys(li.get(3).get("D"));
+	    driver.findElement(By.id("minutes_charges")).sendKeys(li.get(0).get("E"));
+	    driver.findElement(By.id("inter_charges")).sendKeys(li.get(2).get("F"));
+	    driver.findElement(By.id("sms_charges")).sendKeys(li.get(3).get("G"));
 	}
 
 
