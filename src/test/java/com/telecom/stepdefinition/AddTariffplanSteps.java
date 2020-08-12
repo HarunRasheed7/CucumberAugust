@@ -92,7 +92,18 @@ public class AddTariffplanSteps {
 	    driver.findElement(By.id("inter_charges")).sendKeys(li.get(2).get("F"));
 	    driver.findElement(By.id("sms_charges")).sendKeys(li.get(3).get("G"));
 	}
-
+    
+	@When("User filling all the details in tariff plans {string},{string},{string},{string},{string},{string},{string},")
+	public void user_filling_all_the_details_in_tariff_plans(String A, String B, String C, String D, String E, String F, String G) throws InterruptedException {
+		handleFrame();
+		driver.findElement(By.id("rental1")).sendKeys(A);
+	    driver.findElement(By.id("local_minutes")).sendKeys(B);
+	    driver.findElement(By.id("inter_minutes")).sendKeys(C);
+	    driver.findElement(By.id("sms_pack")).sendKeys(D);
+	    driver.findElement(By.id("minutes_charges")).sendKeys(E);
+	    driver.findElement(By.id("inter_charges")).sendKeys(F);
+	    driver.findElement(By.id("sms_charges")).sendKeys(G);
+	}
 
 
 	@When("User clicks on add tariff submit button")

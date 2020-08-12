@@ -52,3 +52,17 @@ Feature: Adding tariff
       | 3000 | 200 |  70 | 300 | 20 | 5 | 7 |
     And User clicks on add tariff submit button
     Then User will be displayed with congratulation msg
+
+  Scenario Outline: 
+    Given User launch the telecom website for adding tariff
+    And User clicks on Add Tariff
+    When User filling all the details in tariff plans "<A>","<B>","<C>","<D>","<E>","<F>","<G>",
+    And User clicks on add tariff submit button
+    Then User will be displayed with congratulation msg
+
+    Examples: 
+      | A    | B   | C   | D   | E  | F | G |
+      | 2000 | 100 | 500 |  10 |  5 | 3 | 1 |
+      | 3000 | 200 |  70 | 300 | 20 | 9 | 9 |
+      | 2000 | 100 | 500 |   7 |  5 | 8 | 8 |
+      | 3000 | 200 |  70 | 300 | 20 | 5 | 7 |
