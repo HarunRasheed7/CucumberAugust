@@ -2,22 +2,20 @@ $(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.
 formatter.feature({
   "name": "Creating a new Customer",
   "description": "",
-  "keyword": "Feature"
+  "keyword": "Feature",
+  "tags": [
+    {
+      "name": "@regression"
+    }
+  ]
 });
-formatter.scenario({
-  "name": "Add Customer",
+formatter.background({
+  "name": "",
   "description": "",
-  "keyword": "Scenario"
+  "keyword": "Background"
 });
-formatter.step({
-  "name": "User Launch Telecom Site",
-  "keyword": "Given "
-});
-formatter.match({
-  "location": "AddCustomerSteps.user_Launch_Telecom_Site()"
-});
-formatter.result({
-  "status": "skipped"
+formatter.before({
+  "status": "passed"
 });
 formatter.step({
   "name": "User clicks on Add Customer button",
@@ -27,7 +25,23 @@ formatter.match({
   "location": "AddCustomerSteps.user_clicks_on_Add_Customer_button()"
 });
 formatter.result({
-  "status": "skipped"
+  "status": "passed"
+});
+formatter.scenario({
+  "name": "Add Customer",
+  "description": "",
+  "keyword": "Scenario",
+  "tags": [
+    {
+      "name": "@regression"
+    },
+    {
+      "name": "@smoke"
+    },
+    {
+      "name": "@regression"
+    }
+  ]
 });
 formatter.step({
   "name": "User filling of all the details",
@@ -37,15 +51,17 @@ formatter.match({
   "location": "AddCustomerSteps.user_filling_of_all_the_details()"
 });
 formatter.result({
-  "status": "skipped"
+  "status": "passed"
 });
 formatter.step({
-  "name": "User click on submit buttonss",
+  "name": "User click on submit button",
   "keyword": "And "
 });
-formatter.match({});
+formatter.match({
+  "location": "AddCustomerSteps.user_click_on_submit_button()"
+});
 formatter.result({
-  "status": "undefined"
+  "status": "passed"
 });
 formatter.step({
   "name": "User will be displayed with the customer Id that is generated",
@@ -55,7 +71,10 @@ formatter.match({
   "location": "AddCustomerSteps.user_will_be_displayed_with_the_customer_Id_that_is_generated()"
 });
 formatter.result({
-  "status": "skipped"
+  "status": "passed"
+});
+formatter.after({
+  "status": "passed"
 });
 formatter.uri("src/test/resources/Feature File/AddTariff.feature");
 formatter.feature({
@@ -63,20 +82,13 @@ formatter.feature({
   "description": "",
   "keyword": "Feature"
 });
-formatter.scenario({
-  "name": "Adding Tariff plan",
+formatter.background({
+  "name": "",
   "description": "",
-  "keyword": "Scenario"
+  "keyword": "Background"
 });
-formatter.step({
-  "name": "User Launch Telecom Site",
-  "keyword": "Given "
-});
-formatter.match({
-  "location": "AddCustomerSteps.user_Launch_Telecom_Site()"
-});
-formatter.result({
-  "status": "skipped"
+formatter.before({
+  "status": "passed"
 });
 formatter.step({
   "name": "User clicks on Add Tariff",
@@ -86,17 +98,40 @@ formatter.match({
   "location": "AddTariffplanSteps.user_clicks_on_Add_Tariff()"
 });
 formatter.result({
-  "status": "skipped"
+  "status": "passed"
+});
+formatter.scenario({
+  "name": "Adding Tariff plan using one dimensional list",
+  "description": "",
+  "keyword": "Scenario",
+  "tags": [
+    {
+      "name": "@smoke"
+    }
+  ]
 });
 formatter.step({
-  "name": "User filling all the details in tariff plans",
+  "name": "User filling all the details in tariff plans using one dimensional list",
+  "rows": [
+    {
+      "cells": [
+        "2000",
+        "100",
+        "500",
+        "10",
+        "5",
+        "3",
+        "1"
+      ]
+    }
+  ],
   "keyword": "When "
 });
 formatter.match({
-  "location": "AddTariffplanSteps.user_filling_all_the_details_in_tariff_plans()"
+  "location": "AddTariffplanSteps.user_filling_all_the_details_in_tariff_plans_using_one_dimensional_list(DataTable)"
 });
 formatter.result({
-  "status": "skipped"
+  "status": "passed"
 });
 formatter.step({
   "name": "User clicks on add tariff submit button",
@@ -106,7 +141,7 @@ formatter.match({
   "location": "AddTariffplanSteps.user_clicks_on_add_tariff_submit_button()"
 });
 formatter.result({
-  "status": "skipped"
+  "status": "passed"
 });
 formatter.step({
   "name": "User will be displayed with congratulation msg",
@@ -116,6 +151,9 @@ formatter.match({
   "location": "AddTariffplanSteps.user_will_be_displayed_with_congratulation_msg()"
 });
 formatter.result({
-  "status": "skipped"
+  "status": "passed"
+});
+formatter.after({
+  "status": "passed"
 });
 });

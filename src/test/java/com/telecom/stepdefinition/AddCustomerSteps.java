@@ -9,36 +9,33 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import com.commonaction.CommonAction;
+import com.telecom.pom.AddcustomerStepsPage;
+
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.cucumber.datatable.DataTable;
 
-public class AddCustomerSteps {
-	static WebDriver driver;
-	@Given("User Launch Telecom Site")
-	public void user_Launch_Telecom_Site() throws InterruptedException {
-	    System.setProperty("webdriver.chrome.driver",".//driver//chromedriver.exe");
-	    driver =new ChromeDriver();
-	    driver.get("http://demo.guru99.com/telecom/index.html");
-	    driver.manage().window().maximize();
-	   
-	    }
+public class AddCustomerSteps extends CommonAction{
+	
+	AddcustomerStepsPage ac=new AddcustomerStepsPage();
 
-       
-       @Given("User clicks on Add Customer button")
+        @Given("User clicks on Add Customer button")
 	  public void user_clicks_on_Add_Customer_button() throws InterruptedException {
     	  handleFrame();
-	  driver.findElement(By.xpath("(//a[text()='Add Customer'])[1]")).click();
+	 driver.findElement(By.xpath("(//a[text()='Add Customer'])[1]")).click();
 	   
 	}
 
 	@When("User filling of all the details")
         public void user_filling_of_all_the_details() throws InterruptedException {
 		handleFrame();
-		driver.findElement(By.xpath("//label[@for='done']")).click();
-	    driver.findElement(By.id("fname")).sendKeys("Harun");
-        driver.findElement(By.id("lname")).sendKeys("Rasheed");
+		submit(driver.findElement(By.xpath("//label[@for='done']")));
+	    //driver.findElement(By.id("fname")).sendKeys("Harun");
+	    insertText(ac.getFname(), "Harun");
+        //driver.findElement(By.id("lname")).sendKeys("Rasheed");
+	    insertText(ac.getLname(), "Rasheed");
 	    driver.findElement(By.id("email")).sendKeys("harun@mail.com");
 	    driver.findElement(By.name("addr")).sendKeys("Chennai");
 	    driver.findElement(By.id("telephoneno")).sendKeys("88887858474");
@@ -117,7 +114,7 @@ public class AddCustomerSteps {
 		Assert.assertTrue(driver.findElement(By.xpath("(//td[@align='center'])[2]")).isDisplayed());
 	String text = driver.findElement(By.xpath("(//td[@align='center'])[2]")).getText();
 	System.out.println(text);
-	driver.close();
+	
 	}
 	public void handleFrame() throws InterruptedException {
 		Thread.sleep(5000);

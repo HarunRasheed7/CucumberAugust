@@ -10,8 +10,12 @@ import cucumber.api.junit.Cucumber;
                  glue="com.telecom.stepdefinition",
                  monochrome=true,
                  plugin="html:target/cucumber-html-reports",
-                 dryRun=true)
+                 dryRun=false,
+                 tags="@smoke")
 
 public class TestRunner {
 
 }
+
+
+
